@@ -10,17 +10,22 @@ async function send() {
         console.error(e);
     }
 }
+
 (async () => {   
+    // enable proxy if wanted
+    if (env.string('http_proxy', ''))
+        require('global-tunnel').initialize();
+    
     // first, send some message
-    //for (let i of [...new Array(10)]) {
-    //    await send();
-    //}
+    for (let i of [...new Array(10)]) {
+        await send();
+    }
 
     // then start sending messages periodically
     let sendTimer = setInterval(send, 10000);    
 
     // start receiving messages
-    let subscriber = client.subscribe({ topicPath: topic, subscriptionPath: subscription, options: { deletionMode: 'autodelete' } });
+    let subscriber = client.subscribe({ topicPath: topic, subscriptionPath: subscription, options: { deletionMode: 'immediatedelete' } });
 
     subscriber.on('message', message => {
        // do nothing 

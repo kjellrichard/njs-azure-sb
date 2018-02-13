@@ -1,5 +1,5 @@
 const Client = require('./lib/SbClient');
 
-module.exports = (options) => {
-    return new Client(options || require('./config')());
+module.exports = (connectionConfig, options = {}) => {
+    return new Client(connectionConfig || require('./config')(), options);
 };

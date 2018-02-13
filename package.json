@@ -21,5 +21,10 @@
     "dotenv": "^5.0.0",
     "getenv": "^0.7.0",
     "lodash": "^4.17.5"
+  },
+  "devDependencies": {
+    "global-tunnel": "^1.2.0",
+    "install": "^0.10.4",
+    "npm": "^5.6.0"
   }
 }

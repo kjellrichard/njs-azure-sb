@@ -1,2 +1,6 @@
 # njs-azure-sb
-azure service bus tool
+Azure Service bus tool
+
+Build on top of azure-sb from MS which uses REST towards Azure Service Bus
+
+
